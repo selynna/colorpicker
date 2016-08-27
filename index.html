@@ -13,27 +13,28 @@
 <body>
     <div class="initial">
         <h1>colorpicker</h1>
-        <h5> Input your hex color </h5>
+        <h5>Input your hex color code</h5>
         <div class="text">
-          
-            <textarea class="input-text" placeholder="#000000"></textarea>
+            <div class="hash">#</div>
+            <input type="text" class="input-text" placeholder=" 000000" maxlength="6">
         </div>
-    </div>
-    <div class="camera">
-        <input type="file" id="take-picture" accept="image/*">
-        <input type="submit" value="Accept">
-    </div>
-    <div class="buttons">
-        <div id="accept">
-            Accept
+        <div class="middle">
+            or, upload a file
         </div>
-        <div id="retry">
-            Retry
+        <div class="camera">
+            <input type="file" class="pic-buttons" id="take-picture" accept="image/*">
+            <div class="buttons" onclick="getHex()">
+             
+
+               
+                
+            </div>
         </div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="js/vibrant.js"></script>
 </body>
 
 </html>
