@@ -33,6 +33,13 @@ body {
     text-align:center;
 }
 
+.backbutton {
+    float: left;
+    padding-left: 20px;
+    font-size: 40px;
+    font-weight: 800;
+}
+
 .color-rect {
     width: 20%;
     display: inline-block;

@@ -24,7 +24,6 @@ $.getJSON("https://8d2da254.ngrok.io/color/" + color.substring(1), function(resu
             newColorRect.style.verticalAlign = "middle";
             newColorRect.style.padding = "5px";
             
-            
             var span = document.createElement("span");
             var hexText = document.createTextNode(val);
             span.appendChild(hexText);
@@ -34,7 +33,14 @@ $.getJSON("https://8d2da254.ngrok.io/color/" + color.substring(1), function(resu
             newSample.appendChild(newColorRect);
             $("."+key0+"1").append(newSample);
         });
-        
+        if(val0[0] == undefined) {
+                $("."+key0+"1").hide();
+            }
         // $(".color-containers").append('<br>');
     });
 });
+
+$(".backbutton").click(function() {
+    console.log("click");
+    window.location.href = 'index.html';
+})
