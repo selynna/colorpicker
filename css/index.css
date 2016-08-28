@@ -39,6 +39,11 @@ body {
     margin-right: 10px;
     border: solid 1px white;
 }
+
+a {
+    text-decoration: none;
+    color: white;
+}
  
 #retry {
     display: inline;
@@ -131,8 +136,13 @@ body {
 
 #myCanvas {
     padding:25px 5px;
+<<<<<<< HEAD
     /*width:300px;*/
     /*height:300px;*/
+=======
+    height:300px;
+    width:auto;
+>>>>>>> c194b0409618abdb0b0ce436b974e081d9ef0b5a
 }
 
 #take-picture {

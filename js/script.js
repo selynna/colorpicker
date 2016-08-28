@@ -66,6 +66,7 @@ function detectTyping() {
             for (var i = 0; i < content.length; i++) {
                 doms[i + 1].style.color = color;
             }
+            console.log(e.keyCode)
         }
 
     }
@@ -79,6 +80,12 @@ function detectTyping() {
                 doms[i + 1].style.color = "#575757";
             }
         }
+        if (content.length == 6) {
+            console.log(e.keyCode);
+            if (e.keyCode == 13) {
+                window.location.href = 'colors.html';
+            }
+        }
     };
 
 }
@@ -87,10 +94,17 @@ function load(x) {
     var canvas = document.getElementById('myCanvas');
     var context = canvas.getContext('2d');
 
+
+// dim=function(x,y){
+//     return[innerWidth*x,innerHeight*y]
+// }
+// dim(1,1)
+
     //add image here
     var img = document.getElementById("newpic");
     img.src = x;
     // console.log(img.src);
+<<<<<<< HEAD
     context.drawImage(img, 0, 0);
     var factor = 300 / img.height;
     
@@ -105,6 +119,17 @@ function load(x) {
     canvas.height = img.height * factor;
     img.width = canvas.width;
     img.height = canvas.height;
+=======
+    // context.drawImage(img, 0, 0);
+    var factor = 300 / img.height;
+    img.width = (img.width * factor);
+    img.height = 300;
+    console.log(img.height);
+    canvas.width = img.width;
+    canvas.height = 300;
+    console.log(canvas.width);
+    console.log(canvas.height);
+>>>>>>> c194b0409618abdb0b0ce436b974e081d9ef0b5a
     canvas.getContext('2d').drawImage(img, 0, 0, img.width, img.height);
 }
 
