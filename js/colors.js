@@ -3,7 +3,7 @@ console.log("get" + color);
 document.getElementById("crm").style.backgroundColor = color;
 document.getElementById("hexcolortext").innerHTML = color;
 
-$.getJSON("https://api.myjson.com/bins/y4h8", function(result){
+$.getJSON("https://8d2da254.ngrok.io/color/" + color, function(result){
     // console.log(key);
     var colors = [];
     $.each(result, function(key0, val0) {
@@ -24,6 +24,8 @@ $.getJSON("https://api.myjson.com/bins/y4h8", function(result){
             newColorRect.style.width = "50%";
             newColorRect.style.verticalAlign = "middle";
             newColorRect.style.padding = "3px";
+            
+            console.log(key0);
             
             var span = document.createElement("span");
             var hexText = document.createTextNode(val);
