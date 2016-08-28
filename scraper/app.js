@@ -1,25 +1,51 @@
-var express = require('express');
+'use strict';
+
 var storage = require('node-persist');
+var ColorThief = require('color-thief');
+var csv = require('csv');
+var path = require('path');
+
 var fs = require('fs');
-var request = require('request');
-var cheerio = require('cheerio');
 
+var util = require('util'),
+    exec = require('child_process').exec;
+var csv = require("fast-csv");
 
-var app = express();
+// storage.initSync();
+// var websites = storage.getItem("website");
+// var stream = fs.createReadStream("data.csv");
+// var csvStream = csv()
+//   .on("data", function(data){
+//     exec('images/script.zsh ' + data[1], (err, stdout, stderr) => {
+//       if (err) {
+//         console.error(err);
+//         return;
+//       }
+//       fs.exists("images/" + data[1] + "-clipped.png", function(exists) {
+//         if (exists) {
+//           var colorThief = new ColorThief();
+//           var colors = colorThief.getPalette("images/" + data[1] + "-clipped.png", 6);
+//           websites[data[1]] = colors;
+//           console.log(data[1] + " colors: " + colors);
+//           storage.setItem("website",websites);
+//         }
+//       });
+//     });
+//   })
+//   .on("end", function(){
+//        console.log("All websites - DONE");
+//   });
 
-  // var i = 1000;
-  // while(i <= 1000) {
-// var url = 'http://stuffgate.com/stuff/website/top-' + 1000 + '-sites';
-var url = "http://stuffgate.com/";
-request(url, function(error, response, html){
-  console.log(html);
-    if(!error){
-      var $ = cheerio.load(html);
-      $('.bordered-table.zebra-striped').filter(function(){
-        var data = $(this);
-        console.log(data);
-      });
-    }
-});
-  //   i++;
-  // }
+// stream.pipe(csvStream);
+
+const rgbHex = require('rgb-hex');
+storage.initSync();
+var websites = storage.getItem("website");
+for(var i in websites){
+  var new_arr = [];
+  for(var j = 0; j < websites[i].length; j++) {
+    new_arr.push(websites[i][j][0]);
+  }
+  websites[i] = new_arr;
+}
+storage.setItem("website",websites);

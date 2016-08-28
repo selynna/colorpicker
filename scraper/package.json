@@ -6,10 +6,10 @@
   "scripts": {
     "start": "node app.js"
   },
-  "dependencies" : {
-    "express" : "latest",
-    "request" : "latest",
-    "cheerio" : "latest",
-    "node-persist" : "0.0.11"
+  "dependencies": {
+    "color-thief": "^2.2.2",
+    "express": "latest",
+    "node-persist": "0.0.11",
+    "rgb-hex": "^2.0.0"
   }
 }

@@ -35,7 +35,6 @@ app.use('/color/*', function(req,res) {
                     return index == self.indexOf(elem);
                 })
                 value[color]["color_scheme"] = colors;
-                console.log(value[color]);
                 // storage.setItem('colors', value);
                 // res.send(scheme);
               });
@@ -52,8 +51,14 @@ app.use('/color/*', function(req,res) {
                     return index == self.indexOf(elem);
                 })
                 value[color]["contrast"] = colors.slice(0,5);
-                storage.setItem('colors', value);
-                res.send(value[color]);
+                storage.getItem('website_data', function(err,website_data) {
+                  value[color]["similarColors"] = findColors(website_data, color);
+                  for(var i = 0; i < value[color]["similarColors"].length; i++) {
+                    value[color]["similarColors"][i] = "#" + value[color]["similarColors"][i];
+                  }
+                  storage.setItem('colors', value);
+                  res.send(value[color]);
+                });
               }
             });
         });
@@ -65,6 +70,18 @@ app.use('/color/*', function(req,res) {
     }
   );
 });
+
+function findColors(data, color) {
+  for(var i in data){
+    for(var j = 0; j < data[i].length; j++) {
+      if(data[i][j] == color) {
+        console.log(data[i]);
+        return data[i];
+      }
+    }
+  }
+  return [];
+}
 
 app.listen(process.env.PORT || 3000, function () {
   console.log('Colors running.');
