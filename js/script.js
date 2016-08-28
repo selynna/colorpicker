@@ -104,6 +104,22 @@ function load(x) {
     var img = document.getElementById("newpic");
     img.src = x;
     // console.log(img.src);
+<<<<<<< HEAD
+    context.drawImage(img, 0, 0);
+    var factor = 300 / img.height;
+    
+//     var width = myImg.clientWidth;
+//   var length= newpic.clientHeight;
+// console.log(width);
+// function myFunction() {
+//     document.getElementById("myImg").width = width;
+// }
+    
+    canvas.width = img.width * factor;
+    canvas.height = img.height * factor;
+    img.width = canvas.width;
+    img.height = canvas.height;
+=======
     // context.drawImage(img, 0, 0);
     var factor = 300 / img.height;
     img.width = (img.width * factor);
@@ -113,6 +129,7 @@ function load(x) {
     canvas.height = 300;
     console.log(canvas.width);
     console.log(canvas.height);
+>>>>>>> c194b0409618abdb0b0ce436b974e081d9ef0b5a
     canvas.getContext('2d').drawImage(img, 0, 0, img.width, img.height);
 }
 
