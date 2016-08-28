@@ -34,8 +34,13 @@ $.getJSON("https://8d2da254.ngrok.io/color/" + color.substring(1), function(resu
             $("."+key0+"1").append(newSample);
         });
         if(val0[0] == undefined) {
-                $("."+key0+"1").hide();
-            }
+            $("."+key0+"1").hide();
+        }
+        if(key0 == "contrast") { 
+            $.each($("#contrast1 .color-rect"),function(index, val) {
+                val.style.color = color;
+            });
+        }
         // $(".color-containers").append('<br>');
     });
 });
