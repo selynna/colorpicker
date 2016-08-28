@@ -58,10 +58,10 @@ function detectTyping() {
         if (e.keyCode == 8) {
             content.pop();
             document.getElementById("u" + (content.length + 1)).innerHTML = "";
-            var doms = document.querySelectorAll(".underscore");
-            for (var i = 0; i < content.length; i++) {
-                doms[i + 1].style.color = "#575757";
-            }
+            // var doms = document.querySelectorAll(".underscore");
+            // for (var i = 0; i < content.length; i++) {
+            //     doms[i + 1].style.color = "#575757";
+            // }
         }
     }
 
