@@ -15,9 +15,14 @@
     <div class="initial">
         <h1>colorpicker</h1>
         <h5>Input your hex color code</h5>
-        <div class="text">
-            <div class="hash">#______</div>
-            <input type="text" class="input-text" placeholder=" 000000" maxlength="6">
+        <div class="text" id="text">
+            <div class="underscore" id="hash">#</div>
+            <div class="underscore" id="u1"></div>
+            <div class="underscore" id="u2"></div>
+            <div class="underscore" id="u3"></div>
+            <div class="underscore" id="u4"></div>
+            <div class="underscore" id="u5"></div>
+            <div class="underscore" id="u6"></div>
         </div>
         <div class="middle">
             or, upload a file
@@ -25,7 +30,7 @@
         <div class="camera">
             <input type="file" class="pic-buttons" id="take-picture" accept="image/*">
             <div class="buttons">
-                <div id="accept" onclick="getHex()">
+                <div id="accept">
                     Accept
                 </div>
                 <div id="retry">
@@ -34,6 +39,7 @@
             </div>
         </div>
         <div id="test">testing text</div>
+        <input type="submit" onclick="getHex()" value="Test">
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>

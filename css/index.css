@@ -57,15 +57,28 @@ body {
 
 .text .hash {
     font-family: 'Source Code Pro';
-    position: absolute;
-    top: 22px;
-    /*left: 320px;*/
-    left: 40%;
     font-size: 4em; 
     font-weight: 500;
     color: #575757;
 }
 
+#hash {
+    border: none;
+    font-weight: 300;
+    color: #FFFFFF;
+}
+.underscore {
+    font-family: 'Source Code Pro';
+    display: inline-block;
+    color: #575757;
+    top: 22px;
+    font-size: 4em;
+    font-weight: 500;
+    border-bottom: solid white 3px;
+    width: 36px;
+    height: 74px;
+    vertical-align: middle;
+}
 .input-text {
     font-family: 'Source Code Pro';
     text-align: center;
