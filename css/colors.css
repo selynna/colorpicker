@@ -48,6 +48,13 @@ body {
     color: white;
     vertical-align: middle;
     background-color: #123123;
+    transition: 0.3s all;
+    
+}
+.color-rect:hover {
+    padding: 20px !important;
+    z-index: 10;
+    border-radius: 2px;
 }
 
 

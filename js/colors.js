@@ -14,7 +14,7 @@ $.getJSON("https://8d2da254.ngrok.io/color/" + color.substring(1), function(resu
             colors.push(val);
             var newSample = document.createElement("div");
             newSample.className = key0;
-            newSample.style.height = "30px";
+            // newSample.style.height = "30px";
             newSample.style.padding = "5px";
             var newColorRect = document.createElement("div");
             newColorRect.className = "color-rect";

@@ -78,6 +78,8 @@ function detectTyping() {
         }
         if (content.length == 6) {
             console.log(e.keyCode);
+            var color = "#" + content.join("");
+            localStorage.setItem('_hexColor', color);
             if (e.keyCode == 13) {
                 window.location.href = 'colors.html';
             }
@@ -158,12 +160,13 @@ function clickHex(hex) {
     var doms = document.querySelectorAll(".underscore");
     console.log(color);
     for (var i = 0; i < colorArray.length; i++) {
-    doms[i + 1].style.color = color;
+        doms[i + 1].style.color = color;
         // doms[i].style.color = color;
     }
     
     $("#accept").click(function() {
         localStorage.setItem('_hexColor', color);
+        console.log(hex);
         console.log(e.keyCode)
         document.getElementById("pressEnter").style.display = "initial";
     });
