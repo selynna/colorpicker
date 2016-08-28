@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato:100,200,300,400,500,600,700">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:100,200,300,400,500,600,700">
 
     <title>Colorpicker</title>
 </head>
@@ -15,7 +16,7 @@
         <h1>colorpicker</h1>
         <h5>Input your hex color code</h5>
         <div class="text">
-            <div class="hash">#</div>
+            <div class="hash">#______</div>
             <input type="text" class="input-text" placeholder=" 000000" maxlength="6">
         </div>
         <div class="middle">
@@ -23,18 +24,21 @@
         </div>
         <div class="camera">
             <input type="file" class="pic-buttons" id="take-picture" accept="image/*">
-            <div class="buttons" onclick="getHex()">
-             
-
-               
-                
+            <div class="buttons">
+                <div id="accept" onclick="getHex()">
+                    Accept
+                </div>
+                <div id="retry">
+                    Retry
+                </div>
             </div>
         </div>
+        <div id="test">testing text</div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
-    <script type="text/javascript" src="js/vibrant.js"></script>
+    <script type="text/javascript" src="js/Vibrant.js"></script>
 </body>
 
 </html>

@@ -12,22 +12,22 @@ $("input").change(function(readImage) {
     $("input").after(uploadedPic);
     $("input").attr("id","new-pic");
     console.log("testing!");
+  }
+});
 
 function getHex() {
+  document.getElementById("test").innerHTML = "test function";
   var img = document.getElementById('new-pic');
-  // img.setAttribute('src', 'examples/octocat.png')
-
   img.addEventListener('load', function() {
     var vibrant = new Vibrant(img);
     var swatches = vibrant.swatches();
-    for (var swatch in swatches) {
-        if (swatches.hasOwnProperty(swatch) && swatches[swatch]) {
-            console.log(swatch, swatches[swatch].getHex());
-        }
+    for (swatch in swatches) {
+      if (swatches.hasOwnProperty(swatch) && swatches[swatch]) {
+        ref = document.querySelectorAll(".color" + swatch);
+        for (i = 0, len = ref.length; i < len; i++) {
+          console.log(swatch, swatches[swatch].getHex());
     }
+  }
+}
 });
 }
-  }
-
-
-});
