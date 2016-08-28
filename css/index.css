@@ -1,5 +1,5 @@
 @import 'reset.css';
-html,
+/*html,*/
 body {
     width: 100%;
     height: 100%;
@@ -31,6 +31,7 @@ body {
     color: #FFFFFF;
     font-family: Lato;
     font-size: 1em;
+    
 }
 #accept {
     display: inline;
@@ -74,6 +75,7 @@ a {
     font-weight: 300;
     color: #FFFFFF;
 }
+
 .underscore {
     font-family: 'Source Code Pro';
     display: inline-block;
@@ -92,13 +94,13 @@ a {
     border-radius: 4px;
     width: 55%;
     padding-left: 25px;
-    /*line-height: 100%;*/
-    /*height: 70%;*/
+    line-height: 100%;
+    height: 70%;
     font-size: 3.9em;
     letter-spacing: 1px;
-    /*font-size: 90px;*/
-    /*display: inline-block;*/
-    /*vertical-align: middle;*/
+    font-size: 90px;
+    display: inline-block;
+    vertical-align: middle;
     color: #575757;
 }
 .hash {
@@ -106,6 +108,11 @@ a {
     z-index: 2;
     left: 10px;
 }
+
+.pressEnter {
+    display: none;
+}
+
 .middle {
     padding-bottom: 20px;  
     bottom: 0;
@@ -130,7 +137,6 @@ a {
 }
 
 .camera {
-/*    display: none;*/
     text-align: center;
 }
 
@@ -147,14 +153,31 @@ a {
 
 #upload-file {
     display:none;
+    margin:auto;
 }
 
 #hidehere {
     display:none;
 }
 
-/*@media screen and (max-width: 620px) {*/
-/*    #myCanvas {*/
-/*        max-height:210px;*/
-/*    }*/
-/*}*/
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size:60px !important;
+    }
+    #hash {
+        font-size:2em !important;
+    }
+    .text, .underscore {
+        font-size:2em !important;
+        text-align:center !important;
+        display:inline-block;
+    }
+    .underscore {
+        top: 22px;
+        border-bottom: solid white 2px !important;
+        width: 40px;
+        height: 80px;
+        vertical-align: middle;
+        margin-right:10px !important;
+    }
+}
