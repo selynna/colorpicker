@@ -1,5 +1,5 @@
-/*global x*/
-/*global uploadedPic*/
+/*content*/
+var content= [];
 
 $("input").change(function(readImage) {
     var file = readImage.originalEvent.srcElement.files[0];
@@ -12,7 +12,7 @@ $("input").change(function(readImage) {
         uploadedPic.id = "newpic";
         uploadedPic.style = "margin:auto;display:block;";
         var x = uploadedPic.src;
-        console.log(x);
+        // console.log(x);
         load(x);
     };
     reader.readAsDataURL(file);
@@ -38,7 +38,7 @@ $("#retry").click(function() {
     document.getElementbyID("myCanvas");
     canvas.width = canvas.width;
 });
-    
+
 function detectTyping() {
     var one = document.getElementById("u1");
     var two = document.getElementById("u2");
@@ -46,7 +46,6 @@ function detectTyping() {
     var four = document.getElementById("u4");
     var five = document.getElementById("u5");
     var six = document.getElementById("u6");
-    var content = [];
 
     document.onkeypress = function(e) {
         if (e.keyCode < 48 || e.keyCode > 57 && e.keyCode < 97 || e.keyCode >= 103) {
@@ -91,10 +90,14 @@ function load(x) {
     //add image here
     var img = document.getElementById("newpic");
     img.src = x;
-    console.log(img.src);
+    // console.log(img.src);
     context.drawImage(img, 0, 0);
     canvas.width = img.width;
     canvas.height = img.height;
+    $(img).css("max-width", "500px");
+    $(canvas).css("max-width", "500px");
+
+    $("img").css("max-height", "350px");
     canvas.getContext('2d').drawImage(img, 0, 0, img.width, img.height);
 }
 
@@ -130,19 +133,24 @@ $('#myCanvas').click(function(e) {
     var p = canvas.getImageData(x, y, 1, 1).data;
     var hex = "#" + ("000000" + rgbToHex(p[0], p[1], p[2])).slice(-6);
     console.log("HEX: " + hex);
-
-function clickHex() {
-        for (var i = 1; i < 7; i++) {
-         var hexChar = hex.substr(i,1)
-            content.push(hexChar);
-            document.getElementById("u" + (content.length)).innerHTML = hexChar;
-         }
-        }
-        if (content.length == 6) {
-            var color = "#" + content.join("");
-            var doms = document.querySelectorAll(".underscore");
-            for (var i = 0; i < content.length; i++) {
-                doms[i + 1].style.color = color;
-            }
-        }
+    clickHex(hex);
 });
+
+
+function clickHex(hex) {
+    var colorArray = [];
+    for (var i = 1; i < 7; i++) {
+        var hexChar = hex.substring(i, i+1);
+        document.getElementById("u" + i).innerHTML = hexChar;
+        colorArray[colorArray.length] = hexChar;
+    }
+    
+    // console.log(colorArray);
+    var color = "#" + colorArray.join("");
+    var doms = document.querySelectorAll(".underscore");
+    console.log(color);
+    for (var i = 0; i < colorArray.length; i++) {
+    doms[i + 1].style.color = color;
+        // doms[i].style.color = color;
+    }
+}

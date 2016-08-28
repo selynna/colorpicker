@@ -8,6 +8,18 @@ body {
     background-color: #FFFFFF;
     text-align: center;
     font-family: Lato;
-    color:white;
-    overflow: hidden;
+}
+
+.sample {
+    height: 5%;
+}
+.color-rect {
+    width: 20%;
+    display: inline-block;
+    color: white;
+    vertical-align: middle;
+}
+
+#zero {
+    background-color: #123123;
 }

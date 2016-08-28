@@ -130,11 +130,7 @@ body {
 }
 
 #myCanvas {
-    /*display: none;*/
-    max-width:85%;
-    max-height:300px;
     padding:25px 5px;
-    
 }
 
 #take-picture {
@@ -150,8 +146,8 @@ body {
     display:none;
 }
 
-@media screen and (max-width: 620px) {
-    #myCanvas {
-        max-height:210px;
-    }
-}
+/*@media screen and (max-width: 620px) {*/
+/*    #myCanvas {*/
+/*        max-height:210px;*/
+/*    }*/
+/*}*/
