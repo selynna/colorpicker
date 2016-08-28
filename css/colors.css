@@ -13,13 +13,30 @@ body {
 .sample {
     height: 5%;
 }
+
+.color-rect-main {
+    width: 12%;
+    height: 50px;
+    display: inline-block;
+    color: white;
+    background-color: #123123;
+    vertical-align: middle;
+    position: relative;
+}
+
+.hexcolortext {
+    font-size: 24px;
+    width: 100%;
+    height: 50px;
+    top: 15%;
+    left: 0%;
+    position: absolute;
+}
+
 .color-rect {
     width: 20%;
     display: inline-block;
     color: white;
     vertical-align: middle;
-}
-
-#zero {
     background-color: #123123;
 }

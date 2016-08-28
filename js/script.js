@@ -92,12 +92,19 @@ function load(x) {
     img.src = x;
     // console.log(img.src);
     context.drawImage(img, 0, 0);
-    canvas.width = img.width;
-    canvas.height = img.height;
-    $(img).css("max-width", "500px");
-    $(canvas).css("max-width", "500px");
-
-    $("img").css("max-height", "350px");
+    var factor = 300 / img.height;
+    
+//     var width = myImg.clientWidth;
+//   var length= newpic.clientHeight;
+// console.log(width);
+// function myFunction() {
+//     document.getElementById("myImg").width = width;
+// }
+    
+    canvas.width = img.width * factor;
+    canvas.height = img.height * factor;
+    img.width = canvas.width;
+    img.height = canvas.height;
     canvas.getContext('2d').drawImage(img, 0, 0, img.width, img.height);
 }
 
