@@ -1,0 +1,15 @@
+{
+  "name": "Colors",
+  "description": "slash hack",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies" : {
+    "express" : "latest",
+    "request" : "latest",
+    "cheerio" : "latest",
+    "node-persist" : "0.0.11"
+  }
+}
