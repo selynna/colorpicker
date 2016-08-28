@@ -12,20 +12,18 @@ $.getJSON("https://8d2da254.ngrok.io/color/" + color.substring(1), function(resu
                 return true;
             }
             colors.push(val);
-            console.log(colors);
             var newSample = document.createElement("div");
             newSample.className = key0;
-            newSample.style.height = "20px";
-            newSample.style.padding = "3px";
+            newSample.style.height = "30px";
+            newSample.style.padding = "5px";
             var newColorRect = document.createElement("div");
             newColorRect.className = "color-rect";
             newColorRect.style.backgroundColor = val;
             newColorRect.style.height = "100%";
             newColorRect.style.width = "50%";
             newColorRect.style.verticalAlign = "middle";
-            newColorRect.style.padding = "3px";
+            newColorRect.style.padding = "5px";
             
-            console.log(key0);
             
             var span = document.createElement("span");
             var hexText = document.createTextNode(val);

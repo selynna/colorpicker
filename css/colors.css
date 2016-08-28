@@ -1,5 +1,4 @@
 @import 'reset.css';
-
 html,
 body {
     width: 100%;
@@ -47,26 +46,35 @@ body {
     width:45%;
     float:left;
     display:block;
-    padding:20px 0px;
+    padding:40px 0px;
+    font-size:20px;
 }
 
 #contrast1 {
     width:45%;
     float:right;
     display:block;
-    padding:20px 0px;
+    padding:40px 0px;
+    font-size:20px;
+}
+
+.similarColors1 {
+    width:45%;
+    float:right;
+    display:block;
+    padding:20px 0px 40px 0px;
+    font-size:20px;
 }
 
 .color_scheme{
-    width:50%;
+    width:100%;
     float:left;
     display:inline-block;
     /*border:1px solid black;*/
-    
 }
 
 .contrast{
-    width:50%;
+    width:100%;
     float:right;
     display: inline-block;
     /*border:1px solid black;*/
