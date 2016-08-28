@@ -1,3 +1,6 @@
+/*global x*/
+/*global uploadedPic*/
+
 $("input").change(function(readImage) {
     for (var i = 0; i < readImage.originalEvent.srcElement.files.length; i++) {
         var file = readImage.originalEvent.srcElement.files[i];
@@ -8,7 +11,11 @@ $("input").change(function(readImage) {
             uploadedPic.width = 250;
             uploadedPic.id = "newpic";
             uploadedPic.style = "margin:auto;display:block";
-        }
+            var x = uploadedPic.src;
+            console.log(x);
+            load(x);
+        };
+        // console.log(x);
         reader.readAsDataURL(file);
         $("input").after(uploadedPic);
         console.log("testing!");
@@ -58,27 +65,25 @@ function detectTyping() {
         if (e.keyCode == 8) {
             content.pop();
             document.getElementById("u" + (content.length + 1)).innerHTML = "";
-            // var doms = document.querySelectorAll(".underscore");
-            // for (var i = 0; i < content.length; i++) {
-            //     doms[i + 1].style.color = "#575757";
-            // }
         }
     }
 
 }
 
-window.onload = function() {
+function load(x) {
     var canvas = document.getElementById('myCanvas');
     var context = canvas.getContext('2d');
 
     //add image here
     var img = document.getElementById("newpic");
-    // img.src = 'norway.jpg';
+    img.src = x;
+    console.log(img.src);
     context.drawImage(img, 0, 0);
     canvas.width = img.width;
     canvas.height = img.height;
     canvas.getContext('2d').drawImage(img, 0, 0, img.width, img.height);
-};
+
+}
 
 
 function findPos(obj) {
