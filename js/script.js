@@ -2,28 +2,43 @@
 /*global uploadedPic*/
 
 $("input").change(function(readImage) {
-    for (var i = 0; i < readImage.originalEvent.srcElement.files.length; i++) {
-        var file = readImage.originalEvent.srcElement.files[i];
-        var uploadedPic = document.createElement("img");
-        var reader = new FileReader();
-        reader.onloadend = function() {
-            uploadedPic.src = reader.result;
-            uploadedPic.width = 250;
-            uploadedPic.id = "newpic";
-            uploadedPic.style = "margin:auto;display:block";
-            var x = uploadedPic.src;
-            console.log(x);
-            load(x);
-        };
-        // console.log(x);
-        reader.readAsDataURL(file);
-        $("input").after(uploadedPic);
-        console.log("testing!");
-    }
+    var file = readImage.originalEvent.srcElement.files[0];
+    var uploadedPic = document.createElement("img");
+    var reader = new FileReader();
+    reader.onloadend = function() {
+        uploadedPic.src = reader.result;
+        // uploadedPic.width = 250;
+        // uploadedPic.height = 250;
+        uploadedPic.id = "newpic";
+        uploadedPic.style = "margin:auto;display:block;";
+        var x = uploadedPic.src;
+        console.log(x);
+        load(x);
+    };
+    reader.readAsDataURL(file);
+    $(uploadedPic).appendTo("input");
+    console.log("testing!");
 });
 
 $(".text").hover(detectTyping());
 
+$(document).ready(function() {
+    $("#clickhere").click(function() {
+        $("#upload-file").css("display", "block");
+        $("#hidehere").css("display", "inline-block");
+    });
+    $("#hidehere").click(function() {
+        $("#upload-file").css("display", "none");
+        $("#hidehere").css("display", "none");
+    });
+});
+
+$("#retry").click(function() {
+    $("input").val('');
+    document.getElementbyID("myCanvas");
+    canvas.width = canvas.width;
+});
+    
 function detectTyping() {
     var one = document.getElementById("u1");
     var two = document.getElementById("u2");
@@ -32,27 +47,22 @@ function detectTyping() {
     var five = document.getElementById("u5");
     var six = document.getElementById("u6");
     var content = [];
-    //learn how to count with content arrays!!!!!!!!!!!!11!!111
 
     document.onkeypress = function(e) {
         if (e.keyCode < 48 || e.keyCode > 57 && e.keyCode < 97 || e.keyCode >= 103) {
-          console.log(e.keyCode); 
-          return false;
+            return false;
         }
-       
-        if (content.length < 6) { 
-          var hexChar = String.fromCharCode(e.keyCode);
-          console.log(hexChar);
-          content.push(hexChar);
-          document.getElementById("u" + (content.length)).innerHTML = hexChar;
+
+        if (content.length < 6) {
+            var hexChar = String.fromCharCode(e.keyCode);
+            content.push(hexChar);
+            document.getElementById("u" + (content.length)).innerHTML = hexChar;
         }
         if (content.length > 6) {
             return false;
         }
         if (content.length == 6) {
-            console.log("flag");
             var color = "#" + content.join("");
-            console.log(color);
             var doms = document.querySelectorAll(".underscore");
             for (var i = 0; i < content.length; i++) {
                 doms[i + 1].style.color = color;
@@ -65,8 +75,12 @@ function detectTyping() {
         if (e.keyCode == 8) {
             content.pop();
             document.getElementById("u" + (content.length + 1)).innerHTML = "";
+            var doms = document.querySelectorAll(".underscore");
+            for (var i = 0; i < content.length; i++) {
+                doms[i + 1].style.color = "#575757";
+            }
         }
-    }
+    };
 
 }
 
@@ -82,7 +96,6 @@ function load(x) {
     canvas.width = img.width;
     canvas.height = img.height;
     canvas.getContext('2d').drawImage(img, 0, 0, img.width, img.height);
-
 }
 
 
@@ -117,4 +130,19 @@ $('#myCanvas').click(function(e) {
     var p = canvas.getImageData(x, y, 1, 1).data;
     var hex = "#" + ("000000" + rgbToHex(p[0], p[1], p[2])).slice(-6);
     console.log("HEX: " + hex);
+
+function clickHex() {
+        for (var i = 1; i < 7; i++) {
+         var hexChar = hex.substr(i,1)
+            content.push(hexChar);
+            document.getElementById("u" + (content.length)).innerHTML = hexChar;
+         }
+        }
+        if (content.length == 6) {
+            var color = "#" + content.join("");
+            var doms = document.querySelectorAll(".underscore");
+            for (var i = 0; i < content.length; i++) {
+                doms[i + 1].style.color = color;
+            }
+        }
 });

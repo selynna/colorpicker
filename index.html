@@ -14,7 +14,6 @@
 <body>
     <div class="initial">
         <h1>colorpicker</h1>
-        <h5>Input your hex color code</h5>
         <div class="text" id="text">
             <div class="underscore" id="hash">#</div>
             <div class="underscore" id="u1"></div>
@@ -25,9 +24,10 @@
             <div class="underscore" id="u6"></div>
         </div>
         <div class="middle">
-            or, upload a file
+            or, upload a file <span class="clickhere" id="clickhere">here</span>. <span class="hidehere" id="hidehere">(Hide)</span>
         </div>
-        <div class="camera">
+        <div id="upload-file">
+        <div class="camera" id="camera">
             <input type="file" class="pic-buttons" id="take-picture" accept="image/*">
             <div class="buttons">
                 <div id="accept">
@@ -38,7 +38,8 @@
                 </div>
             </div>
         </div>
-        <canvas id="myCanvas" style="border:1px solid #c3c3c3;"></canvas>
+        </div>
+        <canvas id="myCanvas"></canvas>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>

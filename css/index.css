@@ -8,6 +8,7 @@ body {
     text-align: center;
     font-family: Lato;
     color:white;
+    overflow: hidden;
 }
 
 .initial {
@@ -16,12 +17,12 @@ body {
     font-size: 15px;
     font-weight: 200;
     color: #FFFFFF;
-    padding-top: 50px;
+    padding-top: 45px;
     vertical-align: 50%;
 }
 
 .initial h1 {
-    font-size: 48px;
+    font-size: 84px;
     padding-bottom: 20px;
 }
 
@@ -51,13 +52,14 @@ body {
     font-family: 'Source Code Pro';
     width: 100%;
     height: 20%;
-    padding-top: 20px;
+    padding-top: 10px;
     position: relative;
+    padding-bottom: 20px;
 }
 
 .text .hash {
     font-family: 'Source Code Pro';
-    font-size: 4em; 
+    font-size: 7em; 
     font-weight: 500;
     color: #575757;
 }
@@ -72,11 +74,11 @@ body {
     display: inline-block;
     color: #575757;
     top: 22px;
-    font-size: 4em;
+    font-size: 7em;
     font-weight: 500;
     border-bottom: solid white 3px;
-    width: 36px;
-    height: 74px;
+    width: 72px;
+    height: 130px;
     vertical-align: middle;
 }
 .input-text {
@@ -101,8 +103,55 @@ body {
 }
 .middle {
     padding-bottom: 20px;  
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+}
+
+.clickhere:hover {
+    color: #5FCFF5;
+}
+
+.hidehere:hover {
+    color: #5FCFF5;
+}
+
+#retry:hover {
+    color: #5FCFF5;
+}
+
+#accept:hover {
+    color: #5FCFF5;
+}
+
+.camera {
+/*    display: none;*/
+    text-align: center;
+}
+
+#myCanvas {
+    /*display: none;*/
+    max-width:85%;
+    max-height:300px;
+    padding:25px 5px;
+    
 }
 
 #take-picture {
     width:156px;
+    padding-bottom: 10px;
+}
+
+#upload-file {
+    display:none;
+}
+
+#hidehere {
+    display:none;
+}
+
+@media screen and (max-width: 620px) {
+    #myCanvas {
+        max-height:210px;
+    }
 }
