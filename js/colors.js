@@ -1,6 +1,10 @@
+var color = localStorage.getItem('_hexColor');
+console.log("get" + color);
+document.getElementById("crm").style.backgroundColor = color;
+document.getElementById("hexcolortext").innerHTML = color;
+
 $.getJSON("https://api.myjson.com/bins/y4h8", function(result){
-    console.log(result);
-    console.log(result.color_scheme);
+    // console.log(key);
     var colors = [];
     $.each(result, function(key0, val0) {
         $.each(val0, function(key, val) {
@@ -8,15 +12,18 @@ $.getJSON("https://api.myjson.com/bins/y4h8", function(result){
                 return true;
             }
             colors.push(val);
+            console.log(colors);
             var newSample = document.createElement("div");
-            newSample.className = "sample";
+            newSample.className = key0;
             newSample.style.height = "20px";
+            newSample.style.padding = "3px";
             var newColorRect = document.createElement("div");
             newColorRect.className = "color-rect";
             newColorRect.style.backgroundColor = val;
             newColorRect.style.height = "100%";
-            newColorRect.style.width = "12%";
+            newColorRect.style.width = "50%";
             newColorRect.style.verticalAlign = "middle";
+            newColorRect.style.padding = "3px";
             
             var span = document.createElement("span");
             var hexText = document.createTextNode(val);
@@ -25,9 +32,9 @@ $.getJSON("https://api.myjson.com/bins/y4h8", function(result){
             span.style.fontWeight = "100";
             newColorRect.appendChild(span);
             newSample.appendChild(newColorRect);
-            $(".color-containers").append(newSample);
-        })
+            $("."+key0+"1").append(newSample);
+        });
         
-        $(".color-containers").append('<br>');
-    })
+        // $(".color-containers").append('<br>');
+    });
 });

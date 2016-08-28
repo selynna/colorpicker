@@ -33,12 +33,6 @@ $(document).ready(function() {
     });
 });
 
-$("#retry").click(function() {
-    $("input").val('');
-    document.getElementbyID("myCanvas");
-    canvas.width = canvas.width;
-});
-
 function detectTyping() {
     var one = document.getElementById("u1");
     var two = document.getElementById("u2");
@@ -66,7 +60,9 @@ function detectTyping() {
             for (var i = 0; i < content.length; i++) {
                 doms[i + 1].style.color = color;
             }
+            localStorage.setItem('_hexColor', color);
             console.log(e.keyCode)
+            document.getElementById("pressEnter").style.display = "initial";
         }
 
     }
@@ -108,11 +104,8 @@ function load(x) {
     var factor = 300 / img.height;
     img.width = (img.width * factor);
     img.height = 300;
-    console.log(img.height);
     canvas.width = img.width;
     canvas.height = 300;
-    console.log(canvas.width);
-    console.log(canvas.height);
     canvas.getContext('2d').drawImage(img, 0, 0, img.width, img.height);
 }
 
@@ -168,4 +161,17 @@ function clickHex(hex) {
     doms[i + 1].style.color = color;
         // doms[i].style.color = color;
     }
+    
+    $("#accept").click(function() {
+        localStorage.setItem('_hexColor', color);
+        console.log(e.keyCode)
+        document.getElementById("pressEnter").style.display = "initial";
+    });
 }
+
+$("#retry").click(function() {
+    $("input").val('');
+    var canvas = $('#myCanvas')[0];
+    var context = canvas.getContext('2d');
+    context.clearRect(0, 0, 1000, 1000);
+});
