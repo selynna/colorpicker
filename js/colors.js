@@ -3,7 +3,7 @@ console.log("get" + color);
 document.getElementById("crm").style.backgroundColor = color;
 document.getElementById("hexcolortext").innerHTML = color;
 
-$.getJSON("https://8d2da254.ngrok.io/color/" + color.substring(1), function(result){
+$.getJSON("https://colorpickerslash.herokuapp.com/color/" + color.substring(1), function(result){
     // console.log(key);
     var colors = [];
     $.each(result, function(key0, val0) {
