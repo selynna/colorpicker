@@ -9,6 +9,12 @@ var url = require('url');
 
 var app = express();
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 //Allow CSS and IMAGES to bypass app.all
 app.use('/css', express.static('css'));
 app.use('/images', express.static('images'));
