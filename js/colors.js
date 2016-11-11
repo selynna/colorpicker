@@ -3,8 +3,9 @@ console.log("get" + color);
 document.getElementById("crm").style.backgroundColor = color;
 document.getElementById("hexcolortext").innerHTML = color;
 
-$.post("https://colorpickerslash.herokuapp.com/color/" + color.substring(1), function(result){
+$.getJSON("https://colorpickerslash.herokuapp.com/color/" + color.substring(1) + "?callback=?", function(result){
     // console.log(key);
+    console.log(result);
     var colors = [];
     $.each(result, function(key0, val0) {
         $.each(val0, function(key, val) {
@@ -23,7 +24,7 @@ $.post("https://colorpickerslash.herokuapp.com/color/" + color.substring(1), fun
             newColorRect.style.width = "50%";
             newColorRect.style.verticalAlign = "middle";
             newColorRect.style.padding = "5px";
-            
+
             var span = document.createElement("span");
             var hexText = document.createTextNode(val);
             span.appendChild(hexText);
@@ -36,7 +37,7 @@ $.post("https://colorpickerslash.herokuapp.com/color/" + color.substring(1), fun
         if(val0[0] == undefined) {
             $("."+key0+"1").hide();
         }
-        if(key0 == "contrast") { 
+        if(key0 == "contrast") {
             $.each($("#contrast1 .color-rect"),function(index, val) {
                 val.style.color = color;
             });
